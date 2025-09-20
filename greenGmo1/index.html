@@ -16,13 +16,6 @@
     <div class="particle-network-animation"></div>
     <div class="gradient-sphere"></div>
 
-    <!-- Hidden form for Netlify detection -->
-    <form name="contact" netlify hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-    </form>
-
     <!-- Animated Navigation -->
     <nav class="quantum-nav">
         <div class="nav-container">
@@ -73,7 +66,7 @@
             </h3>
             <h1 class="hero-title">
                 <span class="title-line">NEUINN</span>
-                <span class="title-line">Research & Developement</span>
+                <span class="title-line">Research & Development</span>
             </h1>
 
             <p class="hero-description">"Where Research Meets Real-World Impact"</p>
@@ -401,13 +394,21 @@
                 <div class="contact-grid">
                     <!-- Contact Form -->
                     <div class="contact-form">
-                        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <!-- Static HTML form for Netlify form detection -->
+                        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+                            <input type="text" name="name" />
+                            <input type="email" name="email" />
+                            <textarea name="message"></textarea>
+                        </form>
+
+                        <!-- Actual form -->
+                        <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
                             <input type="hidden" name="form-name" value="contact" />
                             
                             <!-- Honeypot field for spam prevention -->
-                            <div style="display: none;">
+                            <p style="display: none;">
                                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                            </div>
+                            </p>
 
                             <div class="form-group">
                                 <input type="text" id="name" name="name" required>
